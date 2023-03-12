@@ -9,3 +9,14 @@
 
   background-color: yellow;
 }
+
+.plsSearch{
+  width:70%;
+  min-height:80vh;
+
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:#000000;
+}

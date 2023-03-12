@@ -8,6 +8,7 @@ export default function Search({...props}) {
 
   const onSearch=(e:FormEvent):void=>{
     e.preventDefault();
+    props.onAfterSearch("searching");
     (async ()=>{
         let payLoad = {
           query:`
@@ -60,7 +61,7 @@ export default function Search({...props}) {
           });
       });
       console.log('result on search component',result)
-      props.onAfterSearch({searchName:searchName,result:result})
+      props.onAfterSearch("done")
       props.setResult(result    );
     })();
     

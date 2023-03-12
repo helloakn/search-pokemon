@@ -17,6 +17,10 @@
   align-items: center;
   width:70%;
 }
+.pokemonContainer td:nth-child(1) {width:20%;}
+.pokemonContainer td:nth-child(2) {width:20%;}
+.pokemonContainer .tblNormal td:nth-child(1) {width:20%;}
+.pokemonContainer .tblNormal td:nth-child(2) {width:80%;}
 .evolutionContainer{
   display:flex;
   flex-direction: column;
@@ -25,10 +29,13 @@
   width:100%;
   margin-top: 10px;
 }
+.pokemonContainer td:nth-child(1) {width:30%;}
+.pokemonContainer td:nth-child(2) {width:30%;}
 .evolutionContainer div{
   width:100%;
   background-color:#bbcaeb;
 }
+
 .tblNormal{
   width:100%;
   text-align: left;

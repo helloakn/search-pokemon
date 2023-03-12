@@ -24,12 +24,12 @@ function PokemonComponent({...props}){
       <table className={styles.tbl}>
         <tr><th>Size</th><th>Min</th><th>Max</th></tr>
         <tr>
-            <th>Weight</th>
+            <td>Weight</td>
             <td>{pokemon.weight.minimum  }</td>
             <td>{pokemon.weight.maximum}</td>
         </tr>
         <tr>
-            <th>Height</th>
+            <td>Height</td>
             <td>{pokemon.height.minimum  }</td>
             <td>{pokemon.height.maximum}</td>
         </tr>

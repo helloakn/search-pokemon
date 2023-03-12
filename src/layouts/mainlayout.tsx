@@ -7,7 +7,8 @@ import styles from '@/styles/layouts/mainlayout.module.css'
 const inter = Inter({ subsets: ['latin'] })
 
 interface IProps {
-  children?: ReactNode
+  children?: ReactNode,
+  isLoading?:boolean
   // any props that come into the component
 }
 
@@ -24,6 +25,10 @@ export default function MainLayout({ children, ...props }:IProps) {
       <main className={styles.layoutContainer}>
         <div className={styles.header}>
           <div>Search PokeMon APP</div>
+        </div>
+        <div className={props.isLoading?styles.LoadingScreen:styles.hidden}>
+          <div>Searching .... </div>
+          <Image src='loading.svg' width="100" height="100" alt="Loading ..." />
         </div>
         <div className={styles.mainBody}>
         {children}
