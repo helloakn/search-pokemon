@@ -68,15 +68,17 @@ function PokemonComponent({...props}){
         <div className={styles.evolutionContainer}>
           <div>Evolutions</div>
           <table className={styles.tbl}>
-          <tbody>
+          <thead>
             <tr>
               <th>id</th><th>number</th><th>name</th>
             </tr>
+            </thead>
+            <tbody>
             {(pokemon.evolutions==null?[]:pokemon.evolutions).map((evolution:TEvolutions) => (
-              <tr key={"evolutionid"+evolution.id}>
+              <tr key={"evolutionid"+evolution.id} onClick={()=>{props.setPokemonName({text:evolution.name,state:"onSearch"})}}>
                 <td>{evolution.id}</td>
                 <td>{evolution.number}</td>
-                <td onClick={()=>{props.setPokemonName({text:evolution.name,state:"onSearch"})}}>{evolution.name}</td>
+                <td >{evolution.name}</td>
               </tr>
             ))}
            </tbody>

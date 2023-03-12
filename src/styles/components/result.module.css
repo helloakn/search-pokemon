@@ -28,13 +28,18 @@
   align-items: center;
   width:100%;
   margin-top: 10px;
+  background-color:#bbcaeb;
 }
 .pokemonContainer td:nth-child(1) {width:30%;}
 .pokemonContainer td:nth-child(2) {width:30%;}
 .evolutionContainer div{
   width:100%;
-  background-color:#bbcaeb;
+  background-color:#b2c3e8;
+  padding:5px;
 }
+.evolutionContainer .tbl tbody tr {cursor: pointer;padding:5px;}
+.evolutionContainer .tbl tbody tr td {padding:5px;}
+.evolutionContainer .tbl tbody tr:hover {background-color: #b2c3e8;}
 
 .tblNormal{
   width:100%;

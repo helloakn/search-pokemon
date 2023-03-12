@@ -6,9 +6,6 @@ export default function Search({...props}) {
 
 
   useEffect(()=>{
-    console.log(props.pokemonName)
-    console.log(props.pokemonName.state)
-    console.log('props.pokemonName.text',props.pokemonName.text)
     if(props.pokemonName.state=='onSearch'){
       props.onProcess("searching");
       (async ()=>{
