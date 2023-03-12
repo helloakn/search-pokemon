@@ -41,6 +41,7 @@ export default function Home() {
       isLoading!='first' && isLoading!='loading' ?
         <Result 
         result={result}
+        pokemonName={pokemonName}
         setPokemonName={setPokemonName}
         />
       :<></>}
