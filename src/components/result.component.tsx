@@ -14,29 +14,35 @@ function PokemonComponent({...props}){
 
   return (
     <div className={styles.pokemonContainer}>
-      
       <table className={styles.tblNormal}>
-        <tr><th>ID</th><td>{pokemon.id}</td></tr>
-        <tr><th>Number</th><td>{pokemon.number}</td></tr>
-        <tr><th>Name</th><td>{pokemon.name}</td></tr>
+        <tbody>
+          <tr><th>ID</th><td>{pokemon.id}</td></tr>
+          <tr><th>Number</th><td>{pokemon.number}</td></tr>
+          <tr><th>Name</th><td>{pokemon.name}</td></tr>
+        </tbody>
       </table>
 
       <table className={styles.tbl}>
-        <tr><th>Size</th><th>Min</th><th>Max</th></tr>
-        <tr>
-            <td>Weight</td>
-            <td>{pokemon.weight.minimum  }</td>
-            <td>{pokemon.weight.maximum}</td>
-        </tr>
-        <tr>
-            <td>Height</td>
-            <td>{pokemon.height.minimum  }</td>
-            <td>{pokemon.height.maximum}</td>
-        </tr>
+        <tbody>
+          <tr><th>Size</th><th>Min</th><th>Max</th></tr>
+          <tr>
+              <td>Weight</td>
+              <td>{pokemon.weight.minimum  }</td>
+              <td>{pokemon.weight.maximum}</td>
+          </tr>
+          <tr>
+              <td>Height</td>
+              <td>{pokemon.height.minimum  }</td>
+              <td>{pokemon.height.maximum}</td>
+          </tr>
+        </tbody>
       </table>
      
         <table className={styles.tbl}>
-          <tr><th>Special Attacking</th><th>Type</th><th>Damage</th></tr>
+          <tbody>
+          <tr>
+            <th>Special Attacking</th><th>Type</th><th>Damage</th>
+          </tr>
           {pokemon.attacks.special.map((attacks:TAttacks) => (
             <tr key={"attname"+attacks.name}>
               <td>{attacks.name}</td>
@@ -44,9 +50,11 @@ function PokemonComponent({...props}){
               <td>{attacks.damage}</td>
             </tr>
           ))}
+           </tbody>
         </table>
 
         <table className={styles.tbl}>
+        <tbody>
           <tr><th>Fast Attacking</th><th>Type</th><th>Damage</th></tr>
           {pokemon.attacks.fast.map((attacks:TAttacks) => (
             <tr key={"attname"+attacks.name}>
@@ -55,18 +63,23 @@ function PokemonComponent({...props}){
               <td>{attacks.damage}</td>
             </tr>
           ))}
+          </tbody>
         </table>
         <div className={styles.evolutionContainer}>
           <div>Evolutions</div>
           <table className={styles.tbl}>
-            <tr><th>id</th><th>number</th><th>name</th></tr>
+          <tbody>
+            <tr>
+              <th>id</th><th>number</th><th>name</th>
+            </tr>
             {(pokemon.evolutions==null?[]:pokemon.evolutions).map((evolution:TEvolutions) => (
               <tr key={"evolutionid"+evolution.id}>
                 <td>{evolution.id}</td>
                 <td>{evolution.number}</td>
-                <td>{evolution.name}</td>
+                <td onClick={()=>{props.setPokemonName({text:evolution.name,state:"onSearch"})}}>{evolution.name}</td>
               </tr>
             ))}
+           </tbody>
           </table>
       </div>
 
@@ -85,8 +98,6 @@ export default function Result({...props}) {
   const [errorMessage,setErrorMessage] = useState<String>('');
 // {(errorMessage!='ok'?ErrorComponent:PokemonComponent)}
   useEffect(()=>{
-    //setResult(props.result)
-    console.log('result component result',result)
      if(props.result.errors && props.result.errors.length>0){
       setErrorMessage('Sorry. Please Specific Pokemon name first. example => Bulbasaur or Ivysaur , etc ...')
     }
@@ -95,14 +106,20 @@ export default function Result({...props}) {
     }
     else{
       setErrorMessage('ok')
-      console.log('result component useEffect',props.result.data.pokemon)
     }
-    //setErrorMessage(result?.errors==undefined?`Input Pokemon Name First`:(result?.data.pokemon == null?`There is no data`:"ok"))
   },[props.result]);
 
   return (
     <div className={styles.resultContainer}>
-      {(errorMessage!='ok'?<ErrorComponent errMessage={errorMessage}/>:<PokemonComponent data={props.result.data.pokemon}/>)}
+      {(
+        errorMessage!='ok'?
+        <ErrorComponent errMessage={errorMessage}/>
+        :
+        <PokemonComponent
+         data={props.result.data.pokemon}
+         setPokemonName={props.setPokemonName}
+         />
+      )}
     </div>
   )
 }

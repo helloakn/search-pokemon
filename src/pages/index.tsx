@@ -20,12 +20,9 @@ export default function Home() {
 
   const [result,setResult] = useState<TResult>({data:{pokemon:null},errors:[]});
   const [isLoading,setIsLoading] = useState<string>('first');
+  const [pokemonName,setPokemonName] = useState({text:'',state:"onload"});
 
-  useEffect(()=>{
-    console.log('myreult',result)
-  },[result]);
-
-  const onAfterSearch = (message:string) =>{
+  const onProcess = (message:string) =>{
     setIsLoading(message)
   }
 
@@ -34,15 +31,17 @@ export default function Home() {
       isLoading={isLoading=='searching'}
     >
       <Search 
-        onAfterSearch={onAfterSearch}
+        onProcess={onProcess}
         setResult={setResult}
+        setPokemonName={setPokemonName}
+        pokemonName={pokemonName}
       />
       {isLoading=='first'?<div className={styles.plsSearch} >Please Specific Pokemon name first and make the searching<br/>example => Bulbasaur or Ivysaur , etc ...</div>
       :
       isLoading!='first' && isLoading!='loading' ?
         <Result 
         result={result}
-        
+        setPokemonName={setPokemonName}
         />
       :<></>}
       
