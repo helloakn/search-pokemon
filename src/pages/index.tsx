@@ -36,7 +36,7 @@ export default function Home() {
         setPokemonName={setPokemonName}
         pokemonName={pokemonName}
       />
-      {isLoading=='first'?<div className={styles.plsSearch} >Please Specific Pokemon name first and make the searching<br/>example => Bulbasaur or Ivysaur , etc ...</div>
+      {isLoading=='first'?<div className={styles.plsSearch} >Let's start pokemon searching<br/>example => Bulbasaur or Ivysaur , etc ...</div>
       :
       isLoading!='first' && isLoading!='loading' ?
         <Result 

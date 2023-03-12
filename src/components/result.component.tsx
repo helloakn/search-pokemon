@@ -103,7 +103,7 @@ export default function Result({...props}) {
      if(props.result.errors && props.result.errors.length>0){
       setErrorMessage('Sorry. Please Specific Pokemon name first. example => Bulbasaur or Ivysaur , etc ...')
     }
-    else if(props.result.data.pokemon == null){
+    else if(props.result.data.pokemon == null   && props.pokemonName.state!="onload"){
       setErrorMessage('Sorry, we do not found your searched result on our records. you can search these => Bulbasaur or Ivysaur , etc ...')
     }
     else{
