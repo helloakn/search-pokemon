@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/layouts/mainlayout.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,8 +21,14 @@ export default function MainLayout({ children, ...props }:IProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.mainBody}>
-       {children}
+      <main className={styles.layoutContainer}>
+        <div className={styles.header}>
+          <div>Search PokeMon APP</div>
+        </div>
+        <div className={styles.mainBody}>
+        {children}
+        </div>
+       
       </main>
     </>
   )

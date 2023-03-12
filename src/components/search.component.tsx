@@ -36,7 +36,11 @@ export default function Search({...props}) {
                   damage
                 }
               }
-              
+              evolutions {
+                id
+                number
+                name
+              }
             }
           }
           `
@@ -57,16 +61,22 @@ export default function Search({...props}) {
       });
       console.log('result on search component',result)
       props.onAfterSearch({searchName:searchName,result:result})
-      props.setResult(result);
+      props.setResult(result    );
     })();
     
   }
   return (
-      <form onSubmit={onSearch} className={styles.container}>
-        <input type='text' onChange={(e)=>{setSearchName(e.target.value)}} />
-        <input type='submit' 
-          
+      <form onSubmit={onSearch} className={styles.searchContainer}>
+        <input 
+          type='text' 
+          onChange={(e)=>{setSearchName(e.target.value)}} 
+          placeholder=" search by pokemon name"
+          className={styles.textBox}
+        />
+        <input 
+          type='submit' 
           value="search" 
+          className={styles.btn}
         />
       </form>
   )

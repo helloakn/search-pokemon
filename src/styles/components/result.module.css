@@ -1,5 +1,52 @@
-.container{
+.resultContainer{
+  width:70%;
+  min-height:80vh;
+
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:#000000;
+}
+
+.pokemonContainer{
+  
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:70%;
+}
+.evolutionContainer{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width:100%;
-  height:20px;
-  background-color:red;
+  margin-top: 10px;
+}
+.evolutionContainer div{
+  width:100%;
+  background-color:#bbcaeb;
+}
+.tblNormal{
+  width:100%;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding:5px;
+  font-size:14px;
+  background-color:#bbcaeb;
+  border-radius:5px;
+}
+.tblNormal tr td{
+  padding:5px;
+}
+.tbl{
+  width:100%;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding:5px;
+  font-size:14px;
 }
